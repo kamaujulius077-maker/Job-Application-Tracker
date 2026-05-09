@@ -14,8 +14,29 @@
             <div class="stat">Total Applications: <span id="total-count">0</span></div>
             <div class="stat">Interviews Scheduled: <span id="interviews-count">0</span>
             <div class="stat">Offers Received: <span id="offers-count">0</span></div>
-         
-    </div>
+          </div>
 
+          <!--Add Apllicaton Form -->
+          <h2>Add New Application</h2>
+            <form id="application-form">
+                <div class="form">
+                    <input type="text" id="company" placeholder="Company Name" required>
+                    <input type="text" id="role" placeholder="Role" required>
+                 </div>
+                 <div class="form-group">
+                    <input type="url" id="link" placeholder="Job link">
+                    <input type="number" id="salary" placeholder="Salary KES">
+                </div>
+                <div class="form-group">
+                    <input type="date" id="date-applied" required>
+                    <select id="status" required>
+                        <option value="">Select Status</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                    <button type="submit">Add Application</button>
+                </div>
 </body>
 </html>
