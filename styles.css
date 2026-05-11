@@ -27,6 +27,8 @@ nav {
     border-bottom: 1px solid #e2e8f0;
 }
 
+
+
 .logo { font-size: 1.5rem; font-weight: 700;
     color: var(--text-main); }
  .logo span { color: var(--text-main); }
@@ -38,16 +40,15 @@ color: var(--text-muted); margin-left: 20px; font-weight: 600; transition: 0.3s;
 o.container { max-width: 1000px; margin: 2re auto;
 padding: 0 20px; }
 
-.dashboard-header { display: flex; 
-justify-content: space-between; 
-align-items: center; margin-bottom: 2rem; }
+.dashboard-header { flex-direction: column; text-align: center; gap: 20px; }
 
 .card {
     background: var(--white);
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5rem;
+    overflow-x: auto;
 }
 
 .grid-form {
@@ -83,16 +84,12 @@ background: var(--primary); width: 0%;
 border-radius: 10px; transition: 0.5s;}
 
 table { width:auto; border-collapse: collapse; }
-th { text-align: left; padding: 12px; 
+th { text-align: left; padding: 10px 8px; font-size: 0.85rem;
 color: var(--text-muted); border-bottom: 2px solid #f1f5f9; }
-td { padding: 16px 12px; border-bottom: 1px solid #64748b; }
+td { padding: 10px 8px; border-bottom: 1px solid #64748b; font-size: 0.85rem; } 
 
 .delete-btn { color: #ef4444;
 background: #fee2e2; border: none;
 padding: 6px 12px; border-radius: 6px;
 cursor: pointer; }
 
-/* Responsive Media Query fir Tblets and Phones */
-@media (max-width: 768px) {
-    /*1. Adjust the Navigation */
-    nav nav {flex-direction:column; padding: 1rem; }
