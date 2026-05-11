@@ -1,15 +1,72 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 20px;
+:root {
+    --primary: #2563eb;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --accent: #10b981;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    background: #f3f340;
-    padding: 30px;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--accent);
+    margin: 0;
+    color: var(--dark);
+    border-radius: 100px;
+}
+
+nav {
+    display:-webkit-inline-flex;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    background: violet;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem;
+}
+
+.form-container {
+    background: green;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+#job-form {
+    background: rgb(176, 30, 30);
+    padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+input, select, button {
+    padding: 0.8rem;
+    margin: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hoverm{
+    opacity: 0.9;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.status-tag {
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
 }

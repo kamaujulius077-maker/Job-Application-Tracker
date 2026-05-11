@@ -3,20 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Tracker - Home</title>
+    <title>CareerPulse | Track Your Journey</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="logo">JobTracker</h1>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">home</a></li>
+    <nav>
+        <div class="logo">CareerPulse</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="#tracker">Tracker</a></li>
-        </ul>
-        </div>
+             </ul>
     </nav>
+    
+    <main>
+        <section class="hero">
+            <h1>Application Tracker</h1>
+            <p>Stay organized and land your dream job.</p>
+        </section>
+        <section class="form-container">
+            <form id="job-form">
+                <input type="text" id="company" placeholder="Company Name" required>
+                <input type="text" id="role" placeholder="Job Role" required>
+                <select id="status">
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                    <button type="submit">Add Application</button> 
+            </form>
+        </section>
+        <section class="tracker-list">
+            <table id="job-table">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="job-body">
+                    <!-- JavaScript will inject rows here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
