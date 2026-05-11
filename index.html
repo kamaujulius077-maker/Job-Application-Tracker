@@ -3,53 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerPulse | Track Your Journey</title>
+    <title>CareerPulse | Tracker</title>
     <link rel="stylesheet" href="styles.css">
-
+    <!-- Adding a font for extra style -->
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet>"
 </head>
 <body>
     <nav>
-        <div class="logo">CareerPulse</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-             </ul>
+        <div class="logo">CareerPulse<span>Pro</span></div>
+        <div class="nav-links"><a href="index.html">Dashboard</a>
+        <a href="about.html">Priject Info</a>
+    </div>
     </nav>
-    
-    <main>
-        <section class="hero">
-            <h1>Application Tracker</h1>
-            <p>Stay organized and land your dream job.</p>
-        </section>
-        <section class="form-container">
+    <div class="container">
+        <header>
+            <h1>Job Application Tracker</h1>
+            <div id="stats-summary">
+                Total Applications:<span id="total-count">0</span>
+            </div>
+        </header>
+
+        <section class="card">
             <form id="job-form">
-                <input type="text" id="company" placeholder="Company Name" required>
-                <input type="text" id="role" placeholder="Job Role" required>
-                <select id="status">
-                    <option value="Applied">Applied</option>
-                    <option value="Interview">Interview</option>
-                    <option value="Offer">Offer</option>
-                    <option value="Rejected">Rejected</option>
-                    <button type="submit">Add Application</button> 
+                <div class="input-group">
+                    <input type="text" id="role" placeholder="Role (e.g. Fronted Dev)" required>
+                    <select id="status">
+                        <option value="Interested"> Interested</option>
+                        <option value="Interview"> Interview</option>
+                        <option value="Offer"> Offer</option>
+                    </select>
+                    <button type="submit" id="add-btn">+ Add Entry</button>
+                </div>
             </form>
         </section>
-        <section class="tracker-list">
+        <section class="table-container card">
             <table id="job-table">
                 <thead>
                     <tr>
                         <th>Company</th>
                         <th>Role</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th 
+                        style="text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody id="job-body">
-                    <!-- JavaScript will inject rows here -->
+                    <!-- Dynamic content here -->
                 </tbody>
             </table>
         </section>
-    </main>
+    
+    </div>
 
+    
     <script src="script.js"></script>
 </body>
 </html>
