@@ -1,88 +1,68 @@
 :root {
-    --primary: #2563eb;
-    --success: #10b9881;
-    --bg: #f1f5f9;
-    --text: #0f172a;
-    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1)
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --bg: #f8fafc;
+    --white:#ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Plus Jakarta sans', sans-serif;
     background-color: var(--bg);
-    color: var(--text);
+    color: var(--text-main);
     margin: 0;
 }
 
 nav {
-    background: white;
-    padding: 1rem 10%;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 10%;
+    background: var(--white);
     border-bottom: 1px solid #e2e8f0;
 }
 
-.logo { font-weight: 700; font-size: 
-    1.5rem; color: var(--primary);}
-.logo span { color: var(--text);}  
-.nav-links a { text-decoration: none; margin-left: 20px; color: #64748b;
-font-weight: 600; }
+.logo { font-size: 1.5rem; font-weight: 700;
+    color: var(--text-main); }
+ .logo span { color: var(--text-main); }
+ .nav-links a { text-decoration: none; 
+color: var(--text-muted); margin-left: 20px; font-weight: 600; transition: 0.3s; }
+.nav-links a.active { color: var(--primary); }
 
-.container { max-width: 1000px; margin: 2rem auto;
+o.container { max-width: 1100px; margin: 2re auto;
 padding: 0 20px; }
 
+.dashboard-header { display: flex; 
+justify-content: space-between; 
+align-items: center; margin-bottom: 2rem; }
+
 .card {
-    background: white;
+    background: var(--white);
+    border-radius: 16px;
     padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
 }
 
-.input-group {
+.grid-form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr auto;
-    gap: 10px;
+    gap: 15px;
 }
 
 input, select {
     padding: 12px;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    outline-color: var(--primary);
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-#add-btn {
+.btn-primary {
     background: var(--primary);
     color: white;
     border: none;
     padding: 12px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
+    border-radius: 8px;
+    font-size: 1rem;
 }
-
-table { width: 100%; border-collapse: collapse;}
-th { text-align: left; color: #64748b;
-     font-size: 0.85rem; text-transform: uppercase; padding: 12px; }
-tb { padding: 15px 12px; border-top: 1px solid #f1f5f9;}
-
-/* Status tags colors */
-.status-tag {
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.delete-btn {
-    color: #ef4444;
-    background: none;
-    border: 1px solid #fee2e2;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.delete-btn:hover { background: 
-    #fee2e2; }
