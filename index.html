@@ -30,3 +30,36 @@
     </header>
 
     <!-- Input Section -->
+     <section class="card">
+        <form id="job-form" class="grid-form">
+            <input type="text" id="company" placeholder="Company Name" required>
+            <input type="text" id="role" placeholder="Job Title" required>
+            <select id="status">
+                <option value="Interested"> Applied</option>
+                <option value="Interview"> Interview</option>
+                <option value="Offer"> Offer</option>
+                </select>
+                <button type="submit" class="btn-primary">Add Application</button>
+        </form>
+     </section>
+
+     <!-- Table Section-->
+      <section class="card table-card">
+        <table id="job-table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Status</th>
+                    <th style="text-align:right">Management</th>
+                </tr>
+            </thead>
+            <tbody id="job-body">
+                <!-- JS Injected Rows -->
+            </tbody>
+        </table>
+      </section>
+      </div>
+      <script src="script.js"></script>
+      </body>
+      </html>
