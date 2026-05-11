@@ -1,72 +1,40 @@
 :root {
     --primary: #2563eb;
-    --dark: #1e293b;
-    --light: #f8fafc;
-    --accent: #10b981;
+    --success: #10b9881;
+    --bg: #f1f5f9;
+    --text: #0f172a;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1)
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--accent);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     margin: 0;
-    color: var(--dark);
-    border-radius: 100px;
 }
 
 nav {
-    display:-webkit-inline-flex;
+    background: white;
+    padding: 1rem 10%;
+    display:flex;
     justify-content: space-between;
-    padding: 1rem 5%;
-    background: violet;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-.hero {
-    text-align: center;
-    padding: 2rem;
-}
+.logo { font-weight: 700; font-size: 
+    1.5rem; color: var(--primary);}
+.logo span { color: var(--text);}  
+.nav-links a { text-decoration: none; margin-left: 20px; color: #64748b;
+font-weight: 600; }
 
-.form-container {
-    background: green;
-    padding: 2rem;
-    border-radius: 2rem;
-}
+.container { max-width: 1000px; margin: 2rem auto;
+padding: 0 20px; }
 
-#job-form {
-    background: rgb(176, 30, 30);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-}
-
-input, select, button {
-    padding: 0.8rem;
-    margin: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hoverm{
-    opacity: 0.9;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-.status-tag {
-    padding: 0.3rem 0.6rem;
+.card {
+    background: white;
+    padding: 1.5rem;
     border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: bold;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
 }
