@@ -5,57 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareerPulse | Tracker</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Adding a font for extra style -->
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet>"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <div class="logo">CareerPulse<span>Pro</span></div>
-        <div class="nav-links"><a href="index.html">Dashboard</a>
-        <a href="about.html">Project Info</a>
-    </div>
+        <div class="logo">Career<span>Pulse</span></div>
+        <div class="nav-links">
+            <a href="index.html"
+            class="active">Dashboard</a>
+            <a href="about.html">About App</a>
+        </div>
     </nav>
-    <div class="container">
-        <header>
-            <h1>Job Application Tracker</h1>
-            <div id="stats-summary">
-                Total Applications:<span id="total-count">0</span>
-            </div>
-        </header>
+<div class="container">
+    <!-- Dashboard Header & Stats -->
+     <header class="dashboard-header">
+        <div>
+             <h1>Welcome Back</h1>
+            <p>You have <span id="app-count">0</span>active applications.</p>
+        </div>
+        <div class="stat-card"><small>Success Rate</small>
+            <div class="progress-bar"><div
+            id="progress-fill"></div>/div>
+        </div>
+    </header>
 
-        <section class="card">
-            <form id="job-form">
-                <div class="input-group">
-                    <input type="text" id="role" placeholder="Role (e.g. Fronted Dev)" required>
-                    <select id="status">
-                        <option value="Interested"> Interested</option>
-                        <option value="Interview"> Interview</option>
-                        <option value="Offer"> Offer</option>
-                    </select>
-                    <button type="submit" id="add-btn">+ Add Entry</button>
-                </div>
-            </form>
-        </section>
-        <section class="table-container card">
-            <table id="job-table">
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th 
-                        style="text-align: right;">Action</th>
-                    </tr>
-                </thead>
-                <tbody id="job-body">
-                    <!-- Dynamic content here -->
-                </tbody>
-            </table>
-        </section>
-    
-    </div>
-
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Input Section -->
