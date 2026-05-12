@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Add Job Application - Track a new job application">
-    <title>Add Job Application - Job Application Tracker</title>
+    <title> Job Application - Job Application Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -25,7 +25,7 @@
         <div class="container">
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Dashboard</a></li>
-                <li><a href="add-application.html" class="nav-link active">Add Application</a></li>
+                <li><a href="application.html" class="nav-link active">Add Application</a></li>
                 <li><a href="statistics.html" class="nav-link">Statistics</a></li>
             </ul>
         </div>
@@ -40,3 +40,70 @@
                     <h2>Add New Job Application</h2>
                     <p class="section-description">Fill in the details below to track a new job application</p>
                 </div>
+                <!-- Application form -->
+                <form id="application-form" class="application-form" novalidate>
+                    <div class="form-group">
+                        <label for="company-name">Company Name *</label>
+                        <input type="text" id="company-name" name="company" placeholder="Enter company name" required>
+                        <span class="error-message" id="company-error"></span>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="position-title">Position Title *</label>
+                        <input type="text" id="position-title" name="position" placeholder="Enter job position" required>
+                        <span class="error-message" id="position-error"></span>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date-applied">Date Applied *</label>
+                            <input type="date" id="date-applied" name="dateApplied" required>
+                            <span class="error-message" id="date-error"></span>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="application-status">Status *</label>
+                            <select id="application-status" name="status" required>
+                                <option value="">Select a status</option>
+                                <option value="Applied">Applied</option>
+                                <option value="Interviewed">Interviewed</option>
+                                <option value="Offered">Offered</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                            <span class="error-message" id="status-error"></span>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="application-notes">Notes</label>
+                        <textarea id="application-notes" name="notes" placeholder="Add any notes about this application"
+                            rows="5"></textarea>
+                        <span class="error-message" id="notes-error"></span>
+                    </div>
+                
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Add Application</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                        <a href="index.html" class="btn btn-secondary">Back to Dashboard</a>
+                    </div>
+                
+                    <!-- Success message -->
+                    <div id="success-message" class="success-message hidden">
+                        ✓ Application added successfully! Redirecting to dashboard...
+                    </div>
+                </form>
+                </section>
+                </div>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container">
+                        <p>&copy; 2026 Job Application Tracker. Track your applications, land your dream job!</p>
+                    </div>
+                </footer>
+                
+                <script src="script.js"></script>
+                </body>
+                
+                </html>

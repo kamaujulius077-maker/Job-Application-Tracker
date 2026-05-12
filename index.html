@@ -26,7 +26,7 @@
         <div class="container">
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Dashboard</a></li>
-                <li><a href="add-application.html" class="nav-link">Add Application</a></li>
+                <li><a href="application.html" class="nav-link">Add Application</a></li>
                 <li><a href="statistics.html" class="nav-link">Statistics</a></li>
             </ul>
         </div>
@@ -50,3 +50,39 @@
                         </select>
                     </div>
                 </div>
+                <!-- Applications table -->
+                <section class="applications-container">
+                    <div id="empty-state" class="empty-state">
+                        <p>No job applications yet. <a href="add-application.html">Add your first application</a></p>
+                    </div>
+                    <table id="applications-table" class="applications-table hidden">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Position</th>
+                                <th>Date Applied</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applications-body">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </section>
+                </section>
+                </div>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container">
+                        <p>&copy; 2026 Job Application Tracker. Track your applications, land your dream job!</p>
+                    </div>
+                </footer>
+                
+                <script src="script.js"></script>
+                </body>
+                
+                </html>
