@@ -20,3 +20,33 @@
             </div>
         </div>
     </header>
+
+    <!-- Navigation menu -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="add-application.html" class="nav-link">Add Application</a></li>
+                <li><a href="statistics.html" class="nav-link">Statistics</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Dashboard section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>Your Applications</h2>
+                    <div class="filter-controls">
+                        <label for="status-filter">Filter by Status:</label>
+                        <select id="status-filter" class="filter-select">
+                            <option value="all">All</option>
+                            <option value="Applied">Applied</option>
+                            <option value="Interviewed">Interviewed</option>
+                            <option value="Offered">Offered</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
