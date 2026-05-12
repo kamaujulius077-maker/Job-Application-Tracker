@@ -306,4 +306,100 @@ header {
 .btn-edit:hover {
     background-color: #138d75;
 }
+.applications-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    overflow-x: auto;
+}
 
+.applications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.applications-table.hidden {
+    display: none;
+}
+
+.applications-table thead {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.applications-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border: none;
+}
+
+.applications-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.applications-table tbody tr {
+    transition: var(--transition);
+}
+
+.applications-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-applied {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-interviewed {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.status-offered {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.status-rejected {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--dark-gray);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.empty-state a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.empty-state a:hover {
+    text-decoration: underline;
+}
