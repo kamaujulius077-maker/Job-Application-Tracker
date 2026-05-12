@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function setActiveLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-linsk')
+    const navLinks = document.querySelectorAll('.nav-link')
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         link.classList.remove('active');
 
-        if ((currentpage === '' && href === 'index.html') ||
+        if ((currentPage === '' && href === 'index.html') ||
             (currentPage === 'index.html' && href === 'index.html') ||
             (currentPage === href)) {
              link.classList.add('active');   
