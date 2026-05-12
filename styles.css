@@ -558,3 +558,15 @@ header {
     padding-top: 20px;
     border-top: 2px solid var(--light-gray);
 }
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 3px solid var(--primary-color);
+}
+
+.footer p {
+    margin: 0;
+}
