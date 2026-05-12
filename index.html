@@ -1,99 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareerPulse | Tracker</title>
+    <meta name="description" content="Job Application Tracker - Track and manage your job applications efficiently">
+    <meta name="author" content="Job Application Tracker">
+    <title>Job Application Tracker - Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <nav>
-        <div class="logo">Career<span>Pulse</span></div>
-        <div class="nav-links">
-            <a href="index.html"
-            class="active">Dashboard</a>
-            <a href="about.html">About the App</a>
-        </div>
-    </nav>
-<div class="container">
-    <!-- Dashboard Header & Stats -->
-     <header class="dashboard-header">
-        <div>
-             <h1>Welcome Back</h1>
-            <p>You have <span id="app-count"> 0 </span> active applications.</p>
-        </div>
-        <div class="stats">
-            <div class="stat-card">
-                <small>Total Applications</small>
-                <div class="stat-number" id="total-count">0</div>
-            </div>
-            <div class="stat-card">
-                <small>Interviews</small>
-                <div class="stat-number" id="interviews-count">0</div>
-            </div>
-            <div class="stat-card">
-                <small>Offers</small>
-                <div class="stat-number" id="offers-count">0</div>
-            </div>
-            <div class="stat-card">
-                <small>Success Rate</small>
-                <div class="progress-bar">
-                    <div id="progress-fill"></div>
-                </div>
+    <!-- Header with navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">📊 Job Tracker</h1>
+                <p class="tagline">Manage Your Job Applications</p>
             </div>
         </div>
     </header>
-
-    <!-- Input Section -->
-     <section class="card">
-        <h2>Add New Application</h2>
-        <form id="job-form" class="grid-form">
-            <input type="text" id="company" placeholder="Company Name" required>
-            <input type="text" id="role" placeholder="Job Title" required>
-            <input type="text" id="location" placeholder="Location (optional)">
-            <input type="date" id="date-applied" required>
-            <select id="status">
-                <option value="Applied">Applied</option>
-                <option value="Interview Scheduled">Interview Scheduled</option>
-                <option value="Interviewed">Interviewed</option>
-                <option value="Offer Received">Offer Received</option>
-                <option value="Rejected">Rejected</option>
-            </select>
-            <textarea id="notes" placeholder="Notes (optional)" rows="3"></textarea>
-            <button type="submit" class="btn-primary">Add Application</button>
-        </form>
-     </section>
-
-     <!-- Table Section-->
-      <section class="card table-card">
-        <div class="table-header">
-            <h2>Your Applications</h2>
-            <div>
-                <input type="text" id="search" placeholder="Search applications...">
-                <button id="export-btn" class="btn-primary" style="margin-left: 10px;">Export to CSV</button>
-            </div>
-        </div>
-        <table id="job-table">
-            <thead>
-                <tr>
-                    <th>Company</th>
-                    <th>Position</th>
-                    <th>Location</th>
-                    <th>Date Applied</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                    <th style="text-align:right">Actions</th>
-                </tr>
-            </thead>
-            <tbody id="job-body">
-                <!-- JS Injected Rows -->
-            </tbody>
-        </table>
-      </section>
-      </div>
-      <script src="script.js"></script>
-<footer style="text-align: center; padding: 1rem; color: var(--text-muted);">
-    &copy; 2026 CareerPulse. All rights reserved.
-      </body>
-      </html>
