@@ -21,37 +21,69 @@
      <header class="dashboard-header">
         <div>
              <h1>Welcome Back</h1>
-            <p>You have <span id="app-count"> 0 </span>active applications.</p>
+            <p>You have <span id="app-count"> 0 </span> active applications.</p>
         </div>
-        <div class="stat-card"><small>Success Rate</small>
-            <div class="progress-bar"><div
-            id="progress-fill"></div>
+        <div class="stats">
+            <div class="stat-card">
+                <small>Total Applications</small>
+                <div class="stat-number" id="total-count">0</div>
+            </div>
+            <div class="stat-card">
+                <small>Interviews</small>
+                <div class="stat-number" id="interviews-count">0</div>
+            </div>
+            <div class="stat-card">
+                <small>Offers</small>
+                <div class="stat-number" id="offers-count">0</div>
+            </div>
+            <div class="stat-card">
+                <small>Success Rate</small>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Input Section -->
      <section class="card">
+        <h2>Add New Application</h2>
         <form id="job-form" class="grid-form">
             <input type="text" id="company" placeholder="Company Name" required>
             <input type="text" id="role" placeholder="Job Title" required>
+            <input type="text" id="location" placeholder="Location (optional)">
+            <input type="date" id="date-applied" required>
             <select id="status">
-                <option value="Interested"> Applied</option>
-                <option value="Interview"> Interview</option>
-                <option value="Offer"> Offer</option>
-                </select>
-                <button type="submit" class="btn-primary">Add Application</button>
+                <option value="Applied">Applied</option>
+                <option value="Interview Scheduled">Interview Scheduled</option>
+                <option value="Interviewed">Interviewed</option>
+                <option value="Offer Received">Offer Received</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+            <textarea id="notes" placeholder="Notes (optional)" rows="3"></textarea>
+            <button type="submit" class="btn-primary">Add Application</button>
         </form>
      </section>
 
      <!-- Table Section-->
       <section class="card table-card">
+        <div class="table-header">
+            <h2>Your Applications</h2>
+            <div>
+                <input type="text" id="search" placeholder="Search applications...">
+                <button id="export-btn" class="btn-primary" style="margin-left: 10px;">Export to CSV</button>
+            </div>
+        </div>
         <table id="job-table">
             <thead>
                 <tr>
                     <th>Company</th>
                     <th>Position</th>
+                    <th>Location</th>
+                    <th>Date Applied</th>
                     <th>Status</th>
-                    <th style="text-align:right">Management</th>
+                    <th>Notes</th>
+                    <th style="text-align:right">Actions</th>
                 </tr>
             </thead>
             <tbody id="job-body">
