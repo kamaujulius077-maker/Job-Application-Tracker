@@ -38,3 +38,68 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 40px 0 30px;
+    box-shadow: var(--shadow-lg);
+}
+
+.header-content {
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+.navbar {
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    transition: var(--transition);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+}
