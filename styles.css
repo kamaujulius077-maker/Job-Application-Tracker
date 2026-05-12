@@ -403,3 +403,10 @@ header {
 .empty-state a:hover {
     text-decoration: underline;
 }
+
+.dashboard-section {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+}
