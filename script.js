@@ -29,4 +29,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (statsGrid) {
         initializeStatistics();
     }
-    
+
+    // Set active link
+    setActiveLink();
+});
+
+
+/**
+ * Set the active navigation link 
+ */
+function setActiveLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-linsk')
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.remove('active');
+
+        if ((currentpage === '' && href === 'index.html') ||
+            (currentPage === 'index.html' && href === 'index.html') ||
+            (currentPage === href)) {
+             link.classList.add('active');   
+            }
+    });
+}
