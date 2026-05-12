@@ -757,3 +757,110 @@ header {
         width: 95%;
     }
 }
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-link {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-section {
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px;
+    }
+
+    .main-content {
+        padding: 20px 0;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .applications-table {
+        font-size: 0.8rem;
+    }
+
+    .applications-table th,
+    .applications-table td {
+        padding: 8px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-icon {
+        font-size: 1.8rem;
+        min-width: 50px;
+    }
+
+    .stat-content h3 {
+        font-size: 0.85rem;
+    }
+
+    .stat-number {
+        font-size: 1.3rem;
+    }
+
+    .breakdown-label {
+        font-size: 0.9rem;
+    }
+
+    .header {
+        padding: 25px 0 20px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .form-actions,
+    .stats-actions {
+        gap: 10px;
+    }
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
