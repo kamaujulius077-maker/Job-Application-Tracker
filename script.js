@@ -18,10 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
         initializePage();
     }
 
-    // Initialize dashboard if on index page
+    // Initialize dashboard 
    const applicationsTable = document.getElementById('applications-table');
     if (applicationsTable) {
         initializeDashboard();
     } 
 
+    // Initialize statistics page
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+        initializeStatistics();
+    }
     
