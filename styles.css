@@ -655,3 +655,105 @@ header {
         opacity: 1;
     }
 }
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-link {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .applications-table {
+        font-size: 0.9rem;
+    }
+
+    .applications-table th,
+    .applications-table td {
+        padding: 10px;
+    }
+
+    .actions-cell {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .stat-icon {
+        font-size: 2rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    .stats-actions {
+        flex-direction: column;
+    }
+
+    .stats-actions .btn {
+        width: 100%;
+    }
+
+    .form-section {
+        padding: 25px;
+    }
+
+    .dashboard-section {
+        padding: 25px;
+    }
+
+    .applications-container {
+        padding: 20px;
+    }
+
+    .modal-content {
+        padding: 25px;
+        width: 95%;
+    }
+}
