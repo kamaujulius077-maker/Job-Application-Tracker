@@ -461,3 +461,55 @@ function updateInsights(counts, applications) {
         .map(insight => `<div class="insight-item">${insight}</div>`)
         .join('');
 }
+
+/**
+ * Save an application to localStorage
+ * @param {Object} application - Application object to save
+ */
+function saveApplication(application) {
+    const applications = getAllApplications();
+    applications.push(application);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(applications));
+}
+
+/**
+ * Get all applications from localStorage
+ * @returns {Array} Array of all applications
+ */
+function getAllApplications() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+}
+
+/**
+ * Get a single application by ID
+ * @param {number} id - Application ID
+ * @returns {Object|null} Application object or null if not found
+ */
+function getApplicationById(id) {
+    const applications = getAllApplications();
+    return applications.find(app => app.id === id) || null;
+}
+
+/**
+ * Remove an application from localStorage
+ * @param {number} id - Application ID to remove
+ */
+function removeApplication(id) {
+    let applications = getAllApplications();
+    applications = applications.filter(app => app.id !== id);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(applications));
+}
+
+/**
+ * Update an application in localStorage
+ * @param {number} id - Application ID
+ * @param {Object} updatedData - Updated application data
+ */
+function updateApplication(id, updatedData) {
+    let applications = getAllApplications();
+    applications = applications.map(app => 
+        app.id === id ? { ...app, ...updatedData } : app
+    );
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(applications));
+}
