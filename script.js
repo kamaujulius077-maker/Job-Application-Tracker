@@ -190,3 +190,128 @@ function showSuccessMessage() {
         successMessage.classList.add('show');
     }
 }
+
+
+/**
+ * Initialize the dashboard page
+ */
+function initializeDashboard() {
+    // Display applications
+    displayApplications();
+    
+    // Set up filter
+    const filterSelect = document.getElementById('status-filter');
+    if (filterSelect) {
+        filterSelect.addEventListener('change', function() {
+            displayApplications(this.value);
+        });
+    }
+}
+
+/**
+ * Display applications in the table
+ * @param {string} filterStatus - Filter by status (optional)
+ */
+function displayApplications(filterStatus = 'all') {
+    const applications = getAllApplications();
+    const applicationsBody = document.getElementById('applications-body');
+    const applicationsTable = document.getElementById('applications-table');
+    const emptyState = document.getElementById('empty-state');
+    
+    // Clear the table
+    applicationsBody.innerHTML = '';
+    
+    // Filter applications
+    let filteredApplications = applications;
+    if (filterStatus !== 'all') {
+        filteredApplications = applications.filter(app => app.status === filterStatus);
+    }
+    
+    // Show/hide empty state
+    if (filteredApplications.length === 0) {
+        emptyState.style.display = 'block';
+        applicationsTable.classList.add('hidden');
+        return;
+    }
+    
+    emptyState.style.display = 'none';
+    applicationsTable.classList.remove('hidden');
+    
+    // Sort by date (newest first)
+    filteredApplications.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+    
+    // Populate table
+    filteredApplications.forEach(application => {
+        const row = createApplicationRow(application);
+        applicationsBody.appendChild(row);
+    });
+}
+
+/**
+ * Create a table row for an application
+ * @param {Object} application - Application object
+ * @returns {HTMLElement} Table row element
+ */
+function createApplicationRow(application) {
+    const row = document.createElement('tr');
+    
+    // Format date
+    const dateObj = new Date(application.dateApplied);
+    const formattedDate = dateObj.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+    
+    // Status badge
+    const statusClass = `status-${application.status.toLowerCase()}`;
+    
+    // Notes preview (truncate to 50 characters)
+    const notesPreview = application.notes ? application.notes.substring(0, 50) + 
+                         (application.notes.length > 50 ? '...' : '') : '-';
+    
+    row.innerHTML = `
+        <td><strong>${escapeHtml(application.company)}</strong></td>
+        <td>${escapeHtml(application.position)}</td>
+        <td>${formattedDate}</td>
+        <td><span class="status-badge ${statusClass}">${application.status}</span></td>
+        <td title="${escapeHtml(application.notes)}">${escapeHtml(notesPreview)}</td>
+        <td>
+            <div class="actions-cell">
+                <button class="btn btn-edit" onclick="editApplication(${application.id})">Edit</button>
+                <button class="btn btn-danger" onclick="deleteApplication(${application.id})">Delete</button>
+            </div>
+        </td>
+    `;
+    
+    return row;
+}
+
+/**
+ * Delete an application
+ * @param {number} id - Application ID
+ */
+function deleteApplication(id) {
+    if (confirm('Are you sure you want to delete this application?')) {
+        removeApplication(id);
+        displayApplications();
+    }
+}
+
+/**
+ * Edit an application (placeholder for future implementation)
+ * @param {number} id - Application ID
+ */
+function editApplication(id) {
+    const application = getApplicationById(id);
+    if (application) {
+        // Store the application in sessionStorage for editing
+        sessionStorage.setItem('editingApplication', JSON.stringify(application));
+        
+        // Redirect to add application page (which would need to check for editing mode)
+        // For now, just show an alert
+        alert('Edit functionality: You can edit application:\n' + 
+              'Company: ' + application.company + '\n' +
+              'Position: ' + application.position);
+    }
+}
