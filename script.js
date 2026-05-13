@@ -513,3 +513,46 @@ function updateApplication(id, updatedData) {
     );
     localStorage.setItem(STORAGE_KEY, JSON.stringify(applications));
 }
+/**
+ * Escape HTML special characters to prevent XSS
+ * @param {string} text - Text to escape
+ * @returns {string} Escaped text
+ */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+/**
+ * Format a date string to readable format
+ * @param {string} dateString - Date string (ISO format)
+ * @returns {string} Formatted date
+ */
+function formatDate(dateString) {
+    const dateObj = new Date(dateString);
+    return dateObj.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+}
+/**
+ * Export applications as JSON
+ * @returns {string} JSON string of all applications
+ */
+function exportData() {
+    const applications = getAllApplications();
+    return JSON.stringify(applications, null, 2);
+}
+
+/**
+ * Clear all applications from localStorage
+ * Note: Should be used carefully - consider adding a confirmation dialog
+ */
+function clearAllApplications() {
+    if (confirm('Are you sure you want to delete all applications? This action cannot be undone.')) {
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+    }
+}
