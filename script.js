@@ -556,3 +556,4 @@ function clearAllApplications() {
         location.reload();
     }
 }
+
