@@ -156,3 +156,37 @@ function validateForm() {
     return isValid;
 }
 
+/**
+ * Show error message from a form field
+ * @param {string} erroElementId - ID of the error message elelment
+ * @param {string} message - Error message to display
+ */
+
+function showError(errorElementId, message) {
+    const errorElement = document.getElementById(errorElementId);
+    if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+}
+
+/**
+ * Clear all error messages from the form
+ */
+function clearErrors() {
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(element => {
+        element.textContent = '';
+        element.classList.remove('show')
+    })
+}
+
+/**
+ * Show success message
+ */
+function showSuccessMessage() {
+    const successMessage = document.getElementById('success-message');
+    if (successMessage) {
+        successMessage.classList.add('show');
+    }
+}
