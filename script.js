@@ -315,3 +315,149 @@ function editApplication(id) {
               'Position: ' + application.position);
     }
 }
+
+/**
+ * Initialize the statistics page
+ */
+function initializeStatistics() {
+    updateStatistics();
+}
+
+/**
+ * Update statistics display
+ */
+function updateStatistics() {
+    const applications = getAllApplications();
+    
+    if (applications.length === 0) {
+        // Show empty state
+        document.querySelector('.insights-container').innerHTML = 
+            '<p class="insight-empty">No applications yet. Start adding applications to see insights!</p>';
+        return;
+    }
+    
+    // Count by status
+    const counts = {
+        total: applications.length,
+        applied: 0,
+        interviewed: 0,
+        offered: 0,
+        rejected: 0
+    };
+    
+    applications.forEach(app => {
+        if (app.status === 'Applied') counts.applied++;
+        else if (app.status === 'Interviewed') counts.interviewed++;
+        else if (app.status === 'Offered') counts.offered++;
+        else if (app.status === 'Rejected') counts.rejected++;
+    });
+    
+    // Update stat cards
+    document.getElementById('total-applications').textContent = counts.total;
+    document.getElementById('applied-count').textContent = counts.applied;
+    document.getElementById('interviewed-count').textContent = counts.interviewed;
+    document.getElementById('offered-count').textContent = counts.offered;
+    document.getElementById('rejected-count').textContent = counts.rejected;
+    
+    // Calculate success rate (offered / total)
+    const successRate = counts.total > 0 ? 
+        Math.round((counts.offered / counts.total) * 100) : 0;
+    document.getElementById('success-rate').textContent = successRate + '%';
+    
+    // Update breakdown
+    updateBreakdown(counts);
+    
+    // Update insights
+    updateInsights(counts, applications);
+}
+
+/**
+ * Update the status breakdown section
+ * @param {Object} counts - Count object with status breakdowns
+ */
+function updateBreakdown(counts) {
+    const breakdownContainer = document.getElementById('status-breakdown');
+    const total = counts.total;
+    
+    const breakdownHTML = `
+        <div class="breakdown-item">
+            <span class="breakdown-label">Applied</span>
+            <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: ${(counts.applied / total) * 100}%">
+                    <span>${counts.applied}</span>
+                </div>
+            </div>
+            <span class="breakdown-count">${counts.applied}</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-label">Interviewed</span>
+            <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: ${(counts.interviewed / total) * 100}%; background: linear-gradient(90deg, #f39c12, #e67e22);">
+                    <span>${counts.interviewed}</span>
+                </div>
+            </div>
+            <span class="breakdown-count">${counts.interviewed}</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-label">Offered</span>
+            <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: ${(counts.offered / total) * 100}%; background: linear-gradient(90deg, #27ae60, #229954);">
+                    <span>${counts.offered}</span>
+                </div>
+            </div>
+            <span class="breakdown-count">${counts.offered}</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-label">Rejected</span>
+            <div class="breakdown-bar">
+                <div class="breakdown-fill" style="width: ${(counts.rejected / total) * 100}%; background: linear-gradient(90deg, #e74c3c, #c0392b);">
+                    <span>${counts.rejected}</span>
+                </div>
+            </div>
+            <span class="breakdown-count">${counts.rejected}</span>
+        </div>
+    `;
+    
+    breakdownContainer.innerHTML = breakdownHTML;
+}
+
+/**
+ * Update insights section
+ * @param {Object} counts - Count object with status breakdowns
+ * @param {Array} applications - Array of all applications
+ */
+function updateInsights(counts, applications) {
+    const insightsContainer = document.getElementById('insights-container');
+    const insights = [];
+    
+    // Insight 1: Total applications
+    insights.push(`You have applied to <strong>${counts.total}</strong> positions so far.`);
+    
+    // Insight 2: Interview rate
+    if (counts.applied > 0) {
+        const interviewRate = Math.round((counts.interviewed / counts.applied) * 100);
+        insights.push(`Your interview rate is <strong>${interviewRate}%</strong> (${counts.interviewed} interviews from ${counts.applied} applications).`);
+    }
+    
+    // Insight 3: Offers
+    if (counts.offered > 0) {
+        insights.push(`Congratulations! You have received <strong>${counts.offered}</strong> offer${counts.offered > 1 ? 's' : ''}.`);
+    }
+    
+    // Insight 4: Most recent application
+    const mostRecent = applications[0];
+    if (mostRecent) {
+        const dateObj = new Date(mostRecent.dateAdded);
+        const formattedDate = dateObj.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+        });
+        insights.push(`Your most recent application was on <strong>${formattedDate}</strong> at <strong>${mostRecent.company}</strong>.`);
+    }
+    
+    // Render insights
+    insightsContainer.innerHTML = insights
+        .map(insight => `<div class="insight-item">${insight}</div>`)
+        .join('');
+}
