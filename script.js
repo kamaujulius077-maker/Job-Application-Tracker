@@ -1,10 +1,3 @@
-/**
- * Job Application Tracker - JavaScript
- * Handles form validation, LocalStorage persistence, DOM manipulation and dynamic interactions
- */
-
-// APPLICATION STATE AND STORAGE
-
 // Key for localStorage
 const STORAGE_KEY = 'jobApplications';
 
@@ -12,48 +5,50 @@ const STORAGE_KEY = 'jobApplications';
  * Initialize the application on page load
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize form if on application page
+    // Initialize form if on add-application page
     const formElement = document.getElementById('application-form');
     if (formElement) {
-        initializePage();
+        initializeFormPage();
     }
 
-    // Initialize dashboard 
-   const applicationsTable = document.getElementById('applications-table');
+    // Initialize dashboard if on index page
+    const applicationsTable = document.getElementById('applications-table');
     if (applicationsTable) {
         initializeDashboard();
-    } 
+    }
 
-    // Initialize statistics page
+    // Initialize statistics if on statistics page
     const statsGrid = document.querySelector('.stats-grid');
     if (statsGrid) {
         initializeStatistics();
     }
 
-    // Set active link
-    setActiveLink();
+    // Set active nav link
+    setActiveNavLink();
 });
 
-
 /**
- * Set the active navigation link 
+ * Set the active navigation link based on current page
  */
-function setActiveLink() {
+function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link')
-
+    const navLinks = document.querySelectorAll('.nav-link');
+    
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         link.classList.remove('active');
-
-        if ((currentPage === '' && href === 'index.html') ||
+        
+        if ((currentPage === '' && href === 'index.html') || 
             (currentPage === 'index.html' && href === 'index.html') ||
             (currentPage === href)) {
-             link.classList.add('active');   
-            }
+            link.classList.add('active');
+        }
     });
 }
 
+// ============================================
+// FORM PAGE - ADD APPLICATION
+// ============================================
 
 /**
  * Initialize the form page
@@ -157,11 +152,10 @@ function validateForm() {
 }
 
 /**
- * Show error message from a form field
- * @param {string} erroElementId - ID of the error message elelment
+ * Show error message for a form field
+ * @param {string} errorElementId - ID of the error message element
  * @param {string} message - Error message to display
  */
-
 function showError(errorElementId, message) {
     const errorElement = document.getElementById(errorElementId);
     if (errorElement) {
@@ -177,8 +171,8 @@ function clearErrors() {
     const errorElements = document.querySelectorAll('.error-message');
     errorElements.forEach(element => {
         element.textContent = '';
-        element.classList.remove('show')
-    })
+        element.classList.remove('show');
+    });
 }
 
 /**
@@ -191,6 +185,9 @@ function showSuccessMessage() {
     }
 }
 
+// ============================================
+// DASHBOARD PAGE - DISPLAY APPLICATIONS
+// ============================================
 
 /**
  * Initialize the dashboard page
@@ -315,6 +312,10 @@ function editApplication(id) {
               'Position: ' + application.position);
     }
 }
+
+// ============================================
+// STATISTICS PAGE
+// ============================================
 
 /**
  * Initialize the statistics page
@@ -462,6 +463,10 @@ function updateInsights(counts, applications) {
         .join('');
 }
 
+// ============================================
+// LOCALSTORAGE FUNCTIONS
+// ============================================
+
 /**
  * Save an application to localStorage
  * @param {Object} application - Application object to save
@@ -513,6 +518,11 @@ function updateApplication(id, updatedData) {
     );
     localStorage.setItem(STORAGE_KEY, JSON.stringify(applications));
 }
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
 /**
  * Escape HTML special characters to prevent XSS
  * @param {string} text - Text to escape
@@ -537,6 +547,11 @@ function formatDate(dateString) {
         day: 'numeric'
     });
 }
+
+// ============================================
+// EXPORT DATA (for future use)
+// ============================================
+
 /**
  * Export applications as JSON
  * @returns {string} JSON string of all applications
@@ -556,4 +571,3 @@ function clearAllApplications() {
         location.reload();
     }
 }
-
