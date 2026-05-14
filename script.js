@@ -12,7 +12,7 @@ const STORAGE_KEY = 'jobApplications';
  * Initialize the application on page load
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize form if on add-application page
+    // Initialize form if on application page
     const formElement = document.getElementById('application-form');
     if (formElement) {
         initializePage();
